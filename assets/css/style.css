@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px;
+}
+main div{
+    font-size: larger;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn {
+    font-size: large;
+    background-color: #301934;
+    color: white;
+    border-radius: 7.5px;
+    height: 40px;
+    width: 120px;
+}
