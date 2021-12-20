@@ -1,20 +1,61 @@
+:root {
+    --darkpurple: #301934;
+    --lightpurple: #b042ff;
+}
+
+/* Start of Header Section*/
 .header{
     display: flex;
     width: 100%;
     justify-content: space-between;
     padding: 5px;
+    flex-wrap: nowrap;
+}
+.header a {
+    color: var(--lightpurple);
+}
+/*end of header section*/
+main{
+    height: 300px;
 }
 main div{
-    font-size: larger;
+    font-size: x-large;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+h1 {
+    display: flex;
+    width:80%;
+    justify-content: center;
+}
+#start-btn {
+    height: 60px;
+    width: 180px;
+}
 .btn {
-    font-size: large;
-    background-color: #301934;
+    font-size: larger;
+    background-color: var(--darkpurple);
     color: white;
-    border-radius: 7.5px;
-    height: 40px;
-    width: 120px;
+    border-color: var(--darkpurple);
+    border-radius: 10px;
+}
+.btn:hover {
+    background-color: var(--lightpurple);
+    border-color: var(--lightpurple);
+}
+.wrong{
+    border-bottom: 100%;
+    color: lightgray
+}
+#answer-div {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width:40%;
+    padding-left:10% ;
+}
+#answer-div button {
+    height: 60px;
+    width: 400px;
 }
