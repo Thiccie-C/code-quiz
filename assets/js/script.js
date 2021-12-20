@@ -1,5 +1,6 @@
 var mainDiv = ["#main-h1", "#main-p", "#main-btn"]
 var time= 75
+var score = "50"
 var startButton = document.querySelector("#start-btn")
 var questions = ["question1", "question2", "question3", "question4","question5"]
 var qContent = [
@@ -50,41 +51,40 @@ var emptyMain = function(){
     }
 }
 }
+var emptyQuestion = function(){
+    for (i = 0; i < mainDiv.length; i++){
+    console.log(i)
+    if(i < 2){
+    var mainInfo = document.querySelector(mainDiv[i])
+    }
+    else{
+    var removeMainH1 = document.querySelector(".main-h1");
+    var removeMainBtn = document.querySelector(".main-btn");
+    var removeFooter = document.querySelector("footer");
+    removeMainBtn.remove()
+    removeFooter.remove()
+    removeMainH1.remove()
+    }
+}
+}
 startButton.addEventListener("click", function(){
-    questionOrder()
+    question1()
 });
 var wrongAnswer = function() {
-    alert("You selected the wrong answer")
+    score = score -10
+    var wrong = document.createElement("footer")
+    wrong.id = "wrong"
+    wrong.textContent= "wrong!!!"
+    main.append(wrong)
 }
 var correctAnswer = function() {
-   i++
-   questionOrder(i)
-}
-var questionOrder = function() {
-for (i=0; i<questions.length; i++){
-    if(i=0){
-        question1(i)
-        break;
-    }
-    else if(i=1){
-        question2(i)
-        break;
-    }
-    else if(i=2){
-        question3(i)
-        break;
-    }
-    else if(i=3){
-        question4(i)
-        break;
-    }
-    else if(i=4){
-        question5(i)
-        break;
-    }
-}
+    var correct = document.createElement("footer")
+    correct.id = "correct"
+    correct.textContent= "correct!!!"
+    main.append(correct)
 }
 var question1 = function(){
+    emptyMain()
     var questionDiv = document.createElement("div")
     questionDiv.className = "main-h1"
     main.append(questionDiv)
@@ -115,9 +115,27 @@ var question1 = function(){
     answerDiv.append(answer2)
     answerDiv.append(answer3)
     answerDiv.append(answer4)
-    checkAnswer(i)
+     var correctAnswerClicked = document.querySelector("#right")
+    correctAnswerClicked.addEventListener("click", function(){
+        if(correctAnswerClicked){
+            correctAnswer()
+            question2()
+        }
+    })
+    for (i=0; i<=2; i++){
+    var wrongAnswerClicked = document.querySelector("#wrong-" + i)
+    wrongAnswerClicked.addEventListener("click", function(){
+    if (wrongAnswerClicked){
+    wrongAnswer()
+    question2()
+    }
+    else{
+    }
+    })
+    }
 };
 var question2 = function(){
+    emptyQuestion()
     var questionDiv = document.createElement("div")
     questionDiv.className = "main-h1"
     main.append(questionDiv)
@@ -148,9 +166,27 @@ var question2 = function(){
     answerDiv.append(answer2)
     answerDiv.append(answer3)
     answerDiv.append(answer4)
-    checkAnswer(i)
+    var correctAnswerClicked = document.querySelector("#right")
+    correctAnswerClicked.addEventListener("click", function(){
+        if(correctAnswerClicked){
+            correctAnswer()
+            question3()
+        }
+    })
+    for (i=0; i<=2; i++){
+    var wrongAnswerClicked = document.querySelector("#wrong-" + i)
+    wrongAnswerClicked.addEventListener("click", function(){
+    if (wrongAnswerClicked){
+    wrongAnswer()
+    question3
+    }
+    else{
+    }
+    })
+    }
 };
 var question3 = function(){
+    emptyQuestion()
     var questionDiv = document.createElement("div")
     questionDiv.className = "main-h1"
     main.append(questionDiv)
@@ -181,9 +217,27 @@ var question3 = function(){
     answerDiv.append(answer2)
     answerDiv.append(answer3)
     answerDiv.append(answer4)
-    checkAnswer(i)
+    var correctAnswerClicked3 = document.querySelector("#right")
+    correctAnswerClicked3.addEventListener("click", function(){
+        if(correctAnswerClicked3){
+            correctAnswer()
+            question4()
+        }
+    })
+    for (i=0; i<=2; i++){
+    var wrongAnswerClicked = document.querySelector("#wrong-" + i)
+    wrongAnswerClicked.addEventListener("click", function(){
+    if (wrongAnswerClicked){
+    wrongAnswer()
+    question4()
+    }
+    else{
+    }
+    })
+    }
 };
 var question4 = function(){
+    emptyQuestion()
     var questionDiv = document.createElement("div")
     questionDiv.className = "main-h1"
     main.append(questionDiv)
@@ -214,9 +268,27 @@ var question4 = function(){
     answerDiv.append(answer2)
     answerDiv.append(answer3)
     answerDiv.append(answer4)
-    checkAnswer(i)
+    var correctAnswerClicked4 = document.querySelector("#right")
+    correctAnswerClicked4.addEventListener("click", function(){
+        if(correctAnswerClicked4){
+            correctAnswer()
+            question5()
+        }
+    })
+    for (i=0; i<=2; i++){
+    var wrongAnswerClicked = document.querySelector("#wrong-" + i)
+    wrongAnswerClicked.addEventListener("click", function(){
+    if (wrongAnswerClicked){
+    wrongAnswer()
+    question5()
+    }
+    else{
+    }
+    })
+    }
 };
 var question5 = function(){
+    emptyQuestion()
     var questionDiv = document.createElement("div")
     questionDiv.className = "main-h1"
     main.append(questionDiv)
@@ -247,14 +319,10 @@ var question5 = function(){
     answerDiv.append(answer2)
     answerDiv.append(answer3)
     answerDiv.append(answer4)
-    checkAnswer()
-};
-
-var checkAnswer = function(){
-    var correctAnswerClicked = document.querySelector("#right")
-    correctAnswerClicked.addEventListener("click", function(){
-        if(correctAnswerClicked){
-            correctAnswer()
+    var correctAnswerClicked5 = document.querySelector("#right")
+    correctAnswerClicked5.addEventListener("click", function(){
+        if(correctAnswerClicked5){
+            gameOver()
         }
     })
     for (i=0; i<=2; i++){
@@ -262,12 +330,17 @@ var checkAnswer = function(){
     wrongAnswerClicked.addEventListener("click", function(){
     if (wrongAnswerClicked){
     wrongAnswer()
+    gameOver()
     }
     else{
     }
     })
     }
-}
+};
+var gameOver = function(){
+    var highscore = document.createElement("p")
+    highscore.textContent = score;
+};
 //var timer = function() {
 //console.log(time);
 // time--;

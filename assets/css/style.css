@@ -44,8 +44,9 @@ h1 {
     background-color: var(--lightpurple);
     border-color: var(--lightpurple);
 }
-.wrong{
-    border-bottom: 100%;
+#wrong, #correct{
+    border-top: 100%;
+    border-color: lightgray;
     color: lightgray
 }
 #answer-div {
